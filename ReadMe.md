@@ -1,4 +1,4 @@
-# **ANGUlAR**
+# **ANGULAR**
 <img src="Why-AngularJS-A1.jpg" alt="" style="width:100%;"/>
 
 
