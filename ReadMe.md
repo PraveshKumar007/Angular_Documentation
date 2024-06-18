@@ -36,6 +36,7 @@ Angular is a platform and framework for building single-page client applications
 
 ### Version History
 **AngularJS 1.x**: Original version that introduced these features.
+
 **Angular (2+)**: A newer version with improvements in performance and features.
 
 ## Getting Started
@@ -54,6 +55,7 @@ CDN Installation: Include AngularJS directly in your HTML.
   ```
 
 **Your First AngularJS Application**
+
 Create a basic "Hello World" AngularJS app.
 ```jsx
     HTML (index.html):
@@ -86,6 +88,7 @@ Angular applications are modular and consist of a main module, called the root m
 <img src="archi.png" alt="" style="width:100%;"/>
 
 **Module:**
+
 Modules are used to organize an application into cohesive blocks of functionality.
 
 ```jsx
@@ -117,6 +120,7 @@ export class AppComponent {
 }
 ```
 **Output**
+
 ```jsx
 My First Angular App
 ```
@@ -130,12 +134,14 @@ Components are the basic building blocks of Angular applications. They control a
 <img src="com.png" alt="" style="width:100%;"/>
 
 **Creating Components**
+
 ```jsx
 ng generate component hello-world
 ```
 This command generates a new component named hello-world.
 
 **Component Templates**
+
 Templates define the view for a component.
 ```jsx
 // hello-world.component.ts
@@ -149,6 +155,7 @@ export class HelloWorldComponent { }
 ```
 
 **Output**
+
 ```jsx
 Hello, World!
 ```
@@ -162,6 +169,7 @@ Directives are special markers in the DOM that tell Angular to do something with
 <img src="word.png" alt="" style="width:100%;"/>
 
 **Built-in Directives**
+
 ```jsx
 //html
 <p *ngIf="isVisible">This paragraph is visible.</p>
@@ -179,6 +187,7 @@ export class AppComponent {
 }
 ```
 **Output**
+
 ```jsx
 [Button Click] -> This paragraph is visible. / This paragraph is hidden.
 
@@ -192,6 +201,7 @@ Services are used to share data and logic across multiple components. Dependency
 <img src="dep.png" alt="" style="width:100%;"/>
 
 **Creating and Using Services**
+
 ```jsx
 // data.service.ts
 import { Injectable } from '@angular/core';
@@ -218,6 +228,7 @@ export class AppComponent {
 }
 ```
 **Output**
+
 ```jsx
 Apple, Banana, Cherry
 ```
@@ -231,6 +242,7 @@ Routing allows navigation between different views or components. Angular Router 
 <img src="rot.png" alt="" style="width:100%;"/>
 
 **Setting Up Angular Router**
+
 ```jsx
 // app-routing.module.ts
 import { NgModule } from '@angular/core';
@@ -250,6 +262,7 @@ const routes: Routes = [
 export class AppRoutingModule { }
 ```
 **Output**
+
 ```jsx
 Navigates to HomeComponent or AboutComponent based on URL.
 ```
@@ -278,6 +291,7 @@ export class AppComponent {
 ```
 
 **Output**
+
 ```jsx
 css
 { name: 'Entered Value' }
@@ -308,6 +322,7 @@ export class AppComponent {
 }
 ```
 **Output**
+
 ```jsx
 Logs data fetched from the API.
 ```
@@ -316,6 +331,7 @@ Logs data fetched from the API.
 Pipes transform data in the template. Angular provides built-in pipes for common data transformations like date formatting, currency conversion, and more.
 
 **Using Built-in Pipes**
+
 ```jsx
 <p>{{ birthday | date }}</p>
 
@@ -324,6 +340,7 @@ Pipes transform data in the template. Angular provides built-in pipes for common
 - **date** pipe formats the date.
 
 **Output**
+
 ```jsx
 Displays the formatted date of 'birthday'.
 
@@ -333,6 +350,7 @@ Displays the formatted date of 'birthday'.
 Animations enhance user experience by adding visual effects to elements. Angular provides a powerful API for creating animations.
 
 **Using Angular Animation APIs**
+
 ```jsx
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
@@ -350,6 +368,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class FadeInComponent { }
 ```
 **Output**
+
 ```jsx
 Element fades in and out.
 ```
@@ -359,6 +378,7 @@ Element fades in and out.
 Angular provides tools for unit testing with Jasmine and Karma. Unit testing helps ensure that individual parts of an application work as expected.
 
 **Unit Testing Components**
+
 ```jsx
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -383,6 +403,7 @@ Angular provides tools for unit testing with Jasmine and Karma. Unit testing hel
 ```
 
 **Output**
+
 ```jsx
 PASS: should create the app
 PASS: should have as title 'My First Angular App'
@@ -423,6 +444,7 @@ import { FeatureModule } from './feature/feature.module';
 export class AppModule { }
 ```
 **Output**
+
 ```jsx
 A well-organized application that is easier to maintain and extend.
 ```
@@ -455,7 +477,6 @@ Angular application supports French (France) locale.
 ## References
 
 https://angular.dev/overview
-
 
 https://docs.angularjs.org/guide
 
