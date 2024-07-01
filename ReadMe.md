@@ -368,70 +368,7 @@ PASS: should create the app
 PASS: should have as title 'My First Angular App'
 PASS: should render title
 ```
-##  Best Practices
 
-Following best practices helps ensure that your Angular applications are maintainable, scalable, and robust. Some of the best practices include:
-
-- **Code Organization:** Use feature modules to organize code.
-
-- **Follow Angular Style Guide:** Follow the style guide provided by Angular for consistency and readability.
-
-- **Use Reactive Programming:** Use RxJS for managing asynchronous data streams.
-
-- **Lazy Loading:** Load modules on demand to improve performance.
-
-**Diagram: Angular Application Structure**
-
-<img src="Angular Architecture.jpg" alt="" style="width:100%;"/>
-
-**Code Organization Example**
-
-```jsx
-// app.module.ts
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
-import { FeatureModule } from './feature/feature.module';
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, CoreModule, SharedModule, FeatureModule],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
-**Output**
-
-```jsx
-A well-organized application that is easier to maintain and extend.
-```
-## Common Tasks
-
-Common tasks in Angular include internationalization (i18n), state management, performance optimization, and deployment.
-
-**Internationalization (i18n)**
-
-Internationalization allows your app to support multiple languages and locales.
-
-```jsx
-import { LOCALE_ID } from '@angular/core';
-import { registerLocaleData } from '@angular/common';
-import localeFr from '@angular/common/locales/fr';
-
-registerLocaleData(localeFr);
-
-@NgModule({
-  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }]
-})
-export class AppModule { }
-```
-
-**Output**
-
-```jsx
-Angular application supports French (France) locale.
 ```
 ## References
 
