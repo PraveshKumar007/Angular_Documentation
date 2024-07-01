@@ -8,7 +8,6 @@
 - Angular Architecture
 - Components and Templates
 - Directives
-- Services and Dependency Injection
 - Routing and Navigation
 - Forms
 - HTTP Client
@@ -191,46 +190,6 @@ export class AppComponent {
 ```jsx
 [Button Click] -> This paragraph is visible. / This paragraph is hidden.
 
-```
-## Services and Dependency Injection
-
-Services are used to share data and logic across multiple components. Dependency Injection (DI) is a design pattern used to implement IoC (Inversion of Control), allowing a class to receive its dependencies from an external source.
-
-**Diagram: Dependency Injection**
-
-<img src="dep.png" alt="" style="width:100%;"/>
-
-**Creating and Using Services**
-
-```jsx
-// data.service.ts
-import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class DataService {
-  getData() {
-    return ['Apple', 'Banana', 'Cherry'];
-  }
-}
-```
-
-```jsx
-// app.component.ts
-import { DataService } from './data.service';
-
-export class AppComponent {
-  fruits: string[];
-  constructor(private dataService: DataService) {
-    this.fruits = this.dataService.getData();
-  }
-}
-```
-**Output**
-
-```jsx
-Apple, Banana, Cherry
 ```
 
 ## Routing and Navigation
