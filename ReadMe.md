@@ -41,7 +41,7 @@ Angular is a platform and framework for building single-page client applications
 **Key Differences:**
 
 - **AngularJS:** Older, with a focus on controllers and bidirectional data binding.
-- 
+ 
 - **Angular:** Newer, with components, TypeScript support, and a unidirectional data flow.
 
 
