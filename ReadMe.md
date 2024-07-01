@@ -14,9 +14,9 @@
 - Pipes
 - Animations
 - Testing
-- Best Practices
-- Common Tasks
 - References
+
+
 
 ## Introduction to AngularJS
 
@@ -34,9 +34,16 @@ Angular is a platform and framework for building single-page client applications
 - **Services**: Reusable components to handle tasks like data fetching.
 
 ### Version History
-**AngularJS 1.x**: Original version that introduced these features.
+**AngularJS (1.x):** This version was the first release of Angular, starting in 2010. It focused on making it easier to build web applications with features like two-way data binding (where changes in the UI update the data and vice versa). It used concepts like controllers and scopes to manage application logic and data flow.
 
-**Angular (2+)**: A newer version with improvements in performance and features.
+**Angular (2+):** Starting from Angular 2 in 2016, Angular underwent a major rewrite. It introduced new concepts like components, which are reusable pieces of the user interface. Angular 2+ also embraced TypeScript, a superset of JavaScript that adds types and other features to improve code quality and developer productivity. It moved away from two-way data binding in favor of a unidirectional data flow, making applications more predictable and easier to manage.
+
+**Key Differences:**
+
+    AngularJS: Older, with a focus on controllers and bidirectional data binding.
+    Angular: Newer, with components, TypeScript support, and a unidirectional data flow.
+
+
 
 ## Getting Started
 
@@ -360,6 +367,9 @@ Angular provides tools for unit testing with Jasmine and Karma. Unit testing hel
 });
 
 ```
+
+
+
 
 **Output**
 
