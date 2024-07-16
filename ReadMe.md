@@ -6,14 +6,14 @@
 - Introduction to AngularJS 
 - Getting Started
 - Angular Architecture
-- Components and Templates
-- Directives
-- Routing and Navigation
-- Forms
-- HTTP Client
+- AngularJS Expressions
+- AngularJS Modules
+- Data Binding
+- Directives in AngularJS
+- AngularJS Filter
+- AngularJS - Tables
 - Pipes
-- Animations
-- Testing
+- AngularJS Events
 - References
 
 
@@ -94,204 +94,236 @@ Angular applications are modular and consist of a main module, called the root m
 
 <img src="archi.png" alt="" style="width:100%;"/>
 
-**Module:**
+## AngularJS Expressions
+Double braces can be used to enclose AngularJS expressions: expression. They can also be written as ng-bind = "expression" inside a directive. Then, AngularJS will resolve the expression, and the result will be returned exactly where the expression is written.
 
-Modules are used to organize an application into cohesive blocks of functionality.
-
-```jsx
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
-**Components:**
-
-Components are the building blocks of an Angular application.
+Expressions in Angular are much like JavaScript expressions: They can contain literals, operators, and variables. Here is an example:
 
 ```jsx
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-root',
-  template: '<h1>{{title}}</h1>',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  title = 'My First Angular App';
-}
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<div ng-app="">
+  <p>This is an expression: {{ 1.5 * 5 }}</p>
+</div>
+</body>
+</html> 
 ```
-**Output**
+This gives the following output:
+```jsx
+This is an expression: 7.5
+```
+
+##AngularJS Modules
+An AngularJS module is, by definition, a way to organize related components, directives, pipes, and services, allowing them to be combined with other modules to form applications.
+
+For an easier understanding of AngularJS for beginners, an Angular application can be considered a puzzle where each piece (or each module) is needed to see the full picture.
+
+An AngularJS module can be created using the angular.module function. Once you have created an app you can add controllers, directives and pipelines to your application. For example, we can add a controller with the ng-controller directive:
 
 ```jsx
-My First Angular App
+<div ng-app="exampleApp" ng-controller="myCtrl">
+{{ FirstName + " " + FastName }}
+</div>
+<script>
+var app = angular.module("exampleApp", []);
+app.controller("myCtrl", function($scope) {
+  $scope.firstName = "John";
+  $scope.lastName = "Doe";
+});
+</script> 
 ```
 
-## Components and Templates
+## Data Binding
 
-Components are the basic building blocks of Angular applications. They control a portion of the screen called a view. Components are defined using TypeScript classes and decorated with metadata.
+In AngularJS, data binding refers to the synchronization of the model and the View. Applications using AngularJS typically have a data model. The data model is a set of information that the application can use. Data binding binds AngularJS expressions with AngularJS data.
 
-**Diagram: Component Structure**
-
-<img src="com.png" alt="" style="width:100%;"/>
-
-**Creating Components**
+We have already seen Data Binding in action. In the previous example, the {{ FirstName }} expression is an AngularJS data binding expression as it is bound with:
 
 ```jsx
-ng generate component hello-world
-```
-This command generates a new component named hello-world.
-
-**Component Templates**
-
-Templates define the view for a component.
-```jsx
-// hello-world.component.ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-hello-world',
-  template: '<p>Hello, World!</p>',
-})
-export class HelloWorldComponent { }
+ng-model="FirstName."
 ```
 
-**Output**
+More specifically, you can usually use the ng-bind directive, which will bind the innerHTML of the element to the specified model property:
 
-```jsx
-Hello, World!
-```
+```jsx <p ng-bind="Firstname"></p> ```
+
+Like the previous example, you can also display the content from the model using double braces {{ }}:
+
+ ```jsx <p>First name: {{Firstname}}</p> ```
 
 ##  Directives
 
-Directives are special markers in the DOM that tell Angular to do something with the DOM elements and their children. Directives can be classified into three categories: structural, attribute, and custom.
+Directives in AngularJS let you extend HTML by giving it new syntax. Each directive has a name; either one that is predefined by Angular, such as ng-repeat, or a custom name that can be anything. In addition, each directive specifies where it can be used, whether in an element, attribute, class, or comment.
 
-**Diagram: Types of Directives**
-
-<img src="word.png" alt="" style="width:100%;"/>
-
-**Built-in Directives**
-
+AngularJS has many built-in directives which offer different functionalities and are defined using the ng- prefix. 
+**Some directives include:**
+ - ng-app directive initializes an AngularJS application
+ - ng-init directive initializes the data in the application
+ - The ng-model directive is used to bind some value of an HTML control to application data.
+   
+ Let us see these directives in action:
 ```jsx
-//html
-<p *ngIf="isVisible">This paragraph is visible.</p>
-<button (click)="toggleVisibility()">Toggle Visibility</button>
-
-```
-```jsx
-//script
-// app.component.ts
-export class AppComponent {
-  isVisible = true;
-  toggleVisibility() {
-    this.isVisible = !this.isVisible;
-  }
-}
-```
-**Output**
-
-```jsx
-[Button Click] -> This paragraph is visible. / This paragraph is hidden.
-
+<div ng-app="" ng-init="firstName='John'">
+<p>Name: <input type="text" ng-model="firstName"></p>
+<p>You wrote: {{ firstName }}</p>
+</div>
 ```
 
-## Routing and Navigation
+## AngularJS Filter
 
-Routing allows navigation between different views or components. Angular Router is a powerful library for managing navigation and URL manipulation.
+AngularJS filters allow users to format data in the user interface without altering the original format. 
+AngularJS provides a plethora of filters to transform data:
 
-**Diagram: Angular Routing**
+ - currency: Used to format a number to a currency format
+ - date: Used to format a date to some format
+ - filter: Select a subset from a set of items
+ - json: Used to format an object to a JSON string
+ - limitTo: Used to limit an array/string, into a specific number of elements/characters
+ - lowercase: Used to format a string to lower case
+ - number: Can format a numerical value to a string
+ - orderBy: Sorts an array by an expression
+ - uppercase: Used to format a string to upper case.
 
-<img src="rot.png" alt="" style="width:100%;"/>
-
-**Setting Up Angular Router**
-
+   
+ Filters in AngularJS can be added to expressions used in the pipeline | character followed by a filter.
+ 
+ Let's look at an example:
+ 
 ```jsx
-// app-routing.module.ts
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-
-const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-```
-**Output**
-
-```jsx
-Navigates to HomeComponent or AboutComponent based on URL.
+div ng-app="exampleApp" ng-controller="exampleController">
+<p>The name is {{ LastName | uppercase }}</p>
+</div> 
 ```
 
-## Forms
+## AngularJS - Tables
 
-Angular forms allow you to handle user input, validation, and submission. There are two types of forms: Template-Driven and Reactive.
+Table data is generally repeatable. The ng-repeat directive can be used to draw table easily. 
+The following example shows the use of ng-repeat directive to draw a table −
 
-**Template-Driven Forms**
-
-Template-driven forms are simpler to use and suitable for simple forms.
 ```jsx
-html
-<form #form="ngForm" (ngSubmit)="onSubmit(form)">
-  <input name="name" ngModel required>
-  <button type="submit">Submit</button>
-</form>
+<table>
+   <tr>
+      <th>Name</th>
+      <th>Marks</th>
+   </tr>
+   
+   <tr ng-repeat = "subject in student.subjects">
+      <td>{{ subject.name }}</td>
+      <td>{{ subject.marks }}</td>
+   </tr>
+</table>
 ```
+Table can be styled using CSS Styling.
+
 ```jsx
-script
-export class AppComponent {
-  onSubmit(form: any) {
-    console.log(form.value);
-  }
-}
+<style>
+   table, th , td {
+      border: 1px solid grey;
+      border-collapse: collapse;
+      padding: 5px;
+   }
+   table tr:nth-child(odd) {
+      background-color: #f2f2f2;
+   }
+   table tr:nth-child(even) {
+      background-color: #ffffff;
+   }
+</style>
 ```
 
-**Output**
 
+The following example shows the use of all the above-mentioned directives.
 ```jsx
-css
-{ name: 'Entered Value' }
+testAngularJS.htm
+Live Demo
+<html>
+   <head>
+      <title>Angular JS Table</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      
+      <style>
+         table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+         }
+         table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+         }
+         table tr:nth-child(even) {
+            background-color: #ffffff;
+         }
+      </style>
+   </head>
+   
+   <body>
+      <h2>AngularJS Sample Application</h2>
+      <div ng-app = "mainApp" ng-controller = "studentController">
+         
+         <table border = "0">
+            <tr>
+               <td>Enter first name:</td>
+               <td><input type = "text" ng-model = "student.firstName"></td>
+            </tr>
+            <tr>
+               <td>Enter last name: </td>
+               <td>
+                  <input type = "text" ng-model = "student.lastName">
+               </td>
+            </tr>
+            <tr>
+               <td>Name: </td>
+               <td>{{student.fullName()}}</td>
+            </tr>
+            <tr>
+               <td>Subject:</td>
+               
+               <td>
+                  <table>
+                     <tr>
+                        <th>Name</th>.
+                        <th>Marks</th>
+                     </tr>
+                     <tr ng-repeat = "subject in student.subjects">
+                        <td>{{ subject.name }}</td>
+                        <td>{{ subject.marks }}</td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+         </table>
+      </div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('studentController', function($scope) {
+            $scope.student = {
+               firstName: "Mahesh",
+               lastName: "Parashar",
+               fees:500,
+               
+               subjects:[
+                  {name:'Physics',marks:70},
+                  {name:'Chemistry',marks:80},
+                  {name:'Math',marks:65},
+                  {name:'English',marks:75},
+                  {name:'Hindi',marks:67}
+               ],
+               fullName: function() {
+                  var studentObject;
+                  studentObject = $scope.student;
+                  return studentObject.firstName + " " + studentObject.lastName;
+               }
+            };
+         });
+      </script>
+      
+   </body>
+</html>
 
-```
-## HTTP Client
-
-The HttpClient module is used to make HTTP requests to a server. It supports modern HTTP features like interceptors, progress events, and request/response transformations.
-
-**Diagram: HTTP Client Flow**
-
-<img src="http.png" alt="" style="width:100%;"/>
-
-**Making HTTP Requests**
-
-```jsx
-import { HttpClient } from '@angular/common/http';
-
-export class AppComponent {
-  constructor(private http: HttpClient) {}
-
-  getData() {
-    this.http.get('https://api.example.com/data')
-      .subscribe(data => {
-        console.log(data);
-      });
-  }
-}
-```
-**Output**
-
-```jsx
-Logs data fetched from the API.
 ```
 ## Pipes
 
@@ -312,75 +344,64 @@ Pipes transform data in the template. Angular provides built-in pipes for common
 Displays the formatted date of 'birthday'.
 
 ```
-## Animations
 
-Animations enhance user experience by adding visual effects to elements. Angular provides a powerful API for creating animations.
+## AngularJS Events
 
-**Using Angular Animation APIs**
+An Events in AngularJS can be used to perform particular tasks, based on the action taken. Both Angular Event & the HTML Event will be executed & will not overwrite with an HTML Event. It can be added using the Directives mentioned below:
 
-```jsx
-import { trigger, state, style, transition, animate } from '@angular/animations';
+- ng-mousemove: The movement of the mouse leads to the execution of the event.
+- ng-mouseup: Movement of the mouse upwards leads to the execution of the event.
+- ng-mousedown: Movement of the mouse downwards leads to the execution of the event.
+- ng-mouseenter: Click of the mouse button leads to the execution of the event.
+- ng-mouseover: Hovering the mouse leads to the execution of the event.
+- ng-cut: Cut operation leads to the execution of the event.
+- ng-copy: Copy operation leads to the execution of the event.
+- ng-keypress: Press of key leads to the execution of the event.
+- ng-keyup: Press of upward arrow key leads to the execution of the event.
+- ng-keydown: Press of downward arrow key leads to the execution of the event.
+- ng-click: Single click leads to the execution of the event.
+- ng-dblclick: Double click leads to the execution of the event.
+- ng-blur: Fired when an HTML element loses its focus.
+- ng-change: It is used whenever the value of an input element changes.
+- ng-focus: It is used to apply custom behavior when an element is focused.
+- ng-paste: It is used to specify custom behavior functions when the text in input fields is pasted into an HTML element.
+- ng-mouseleave: It is used to apply custom behavior when a mouse-leave event occurs on a specific HTML element.
 
-@Component({
-  selector: 'app-fade-in',
-  templateUrl: './fade-in.component.html',
-  styleUrls: ['./fade-in.component.css'],
-  animations: [
-    trigger('fadeInOut', [
-      state('void', style({ opacity: 0 })),
-      transition(':enter, :leave', [animate(500)])
-    ])
-  ]
-})
-export class FadeInComponent { }
-```
-**Output**
+Example:
 
-```jsx
-Element fades in and out.
-```
-
-## Testing
-
-Angular provides tools for unit testing with Jasmine and Karma. Unit testing helps ensure that individual parts of an application work as expected.
-
-**Unit Testing Components**
-
-```jsx
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'My First Angular App'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('My First Angular App');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('My First Angular App');
-  });
-});
-
-```
-
-
-
-
-**Output**
-
-```jsx
-PASS: should create the app
-PASS: should have as title 'My First Angular App'
-PASS: should render title
+ ```jsx
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+    <script src= 
+"https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> 
+    </script> 
+</head> 
+  
+<body> 
+    <p> 
+        Click on button to  
+          increase the Total Count.  
+    </p> 
+    <div ng-app="App1" 
+         ng-controller="Ctrl1"> 
+        <button ng-click="count = count + 1"> 
+             button  
+        </button> 
+        <h2>Total Count:</h2> 
+        <h2>{{ count }}</h2>  
+    </div> 
+    <script> 
+        var app = angular.module('App1', []); 
+        app.controller('Ctrl1', function($scope) { 
+            $scope.count = 0; 
+        }); 
+    </script> 
+</body> 
+</html>
 ```
 
-```
 ## References
 
 https://angular.dev/overview
