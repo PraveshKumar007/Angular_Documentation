@@ -404,8 +404,8 @@ Example:
 
 ## References
 
-https://angular.dev/overview
+https://www.w3schools.com/angular/
 
-https://docs.angularjs.org/guide
+https://www.microverse.org/blog/angularjs-the-complete-guide-for-beginners
 
 https://www.geeksforgeeks.org/angularjs/
