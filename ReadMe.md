@@ -5,7 +5,6 @@
 ## Table of Content
 - Introduction to AngularJS 
 - Getting Started
-- Angular Architecture
 - AngularJS Expressions
 - AngularJS Modules
 - Data Binding
@@ -86,13 +85,6 @@ Create a basic "Hello World" AngularJS app.
     </body>
     </html>
 ```
-
-## AngularJS Architecture
-Angular applications are modular and consist of a main module, called the root module, and many feature modules. Each module contains components, services, and other modules.
-
-**Diagram: Angular Architecture**
-
-<img src="archi.png" alt="" style="width:100%;"/>
 
 ## AngularJS Expressions
 Double braces can be used to enclose AngularJS expressions: expression. They can also be written as ng-bind = "expression" inside a directive. Then, AngularJS will resolve the expression, and the result will be returned exactly where the expression is written.
