@@ -107,7 +107,7 @@ This gives the following output:
 This is an expression: 7.5
 ```
 
-##AngularJS Modules
+## AngularJS Modules
 An AngularJS module is, by definition, a way to organize related components, directives, pipes, and services, allowing them to be combined with other modules to form applications.
 
 For an easier understanding of AngularJS for beginners, an Angular application can be considered a puzzle where each piece (or each module) is needed to see the full picture.
