@@ -315,13 +315,9 @@ app.controller("exampleController", function($scope) {
 An Events in AngularJS can be used to perform particular tasks, based on the action taken. Both Angular Event & the HTML Event will be executed & will not overwrite with an HTML Event. It can be added using the Directives mentioned below:
 
 - ng-mousemove: The movement of the mouse leads to the execution of the event.
-- ng-mouseup: Movement of the mouse upwards leads to the execution of the event.
-- ng-mousedown: Movement of the mouse downwards leads to the execution of the event.
 - ng-mouseenter: Click of the mouse button leads to the execution of the event.
 - ng-mouseover: Hovering the mouse leads to the execution of the event.
 - ng-keypress: Press of key leads to the execution of the event.
-- ng-keyup: Press of upward arrow key leads to the execution of the event.
-- ng-keydown: Press of downward arrow key leads to the execution of the event.
 - ng-click: Single click leads to the execution of the event.
 - ng-dblclick: Double click leads to the execution of the event.
 - ng-mouseleave: It is used to apply custom behavior when a mouse-leave event occurs on a specific HTML element.
