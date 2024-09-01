@@ -22,20 +22,11 @@
 ### What is Angular?
 Angular is a platform and framework for building single-page client applications using HTML and TypeScript. It is maintained by Google and offers a robust structure for developing dynamic web applications.
 
-### Key Features and Advantages
-- **Data Binding**: Keeps your data and UI in sync automatically.
-- **Component-Based Architecture:** Encapsulates UI functionality within components.
-- **Two-Way Data Binding:** Synchronizes data between the model and view automatically.
-- **Rich Ecosystem:** Provides tools like Angular CLI, RxJS for reactive programming, and Angular Material for UI components.
-- **Directives**: Adds new behaviors to HTML elements.
-- **Dependency Injection**: Makes your code easier to understand and test.
-- **Routing**: Helps create single-page applications without reloading the entire page.
-- **Services**: Reusable components to handle tasks like data fetching.
 
 ### Version History
-**AngularJS (1.x):** This version was the first release of Angular, starting in 2010. It focused on making it easier to build web applications with features like two-way data binding (where changes in the UI update the data and vice versa). It used concepts like controllers and scopes to manage application logic and data flow.
+**AngularJS (1.x):** This version was the first release of Angular, starting in 2010.
 
-**Angular (2+):** Starting from Angular 2 in 2016, Angular underwent a major rewrite. It introduced new concepts like components, which are reusable pieces of the user interface. Angular 2+ also embraced TypeScript, a superset of JavaScript that adds types and other features to improve code quality and developer productivity. It moved away from two-way data binding in favor of a unidirectional data flow, making applications more predictable and easier to manage.
+**Angular (2+):** Starting from Angular 2 in 2016. 
 
 **Key Differences:**
 
@@ -68,7 +59,7 @@ Create a basic "Hello World" AngularJS app.
     <!DOCTYPE html>
     <html lang="en" ng-app="myApp">
     <head>
-      <meta charset="UTF-8">
+      
       <title>Hello AngularJS</title>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
     </head>
@@ -87,7 +78,7 @@ Create a basic "Hello World" AngularJS app.
 ```
 
 ## AngularJS Expressions
-Double braces can be used to enclose AngularJS expressions: expression. They can also be written as ng-bind = "expression" inside a directive. Then, AngularJS will resolve the expression, and the result will be returned exactly where the expression is written.
+Double braces can be used to enclose AngularJS expressions.
 
 Expressions in Angular are much like JavaScript expressions: They can contain literals, operators, and variables. Here is an example:
 
@@ -108,9 +99,8 @@ This is an expression: 7.5
 ```
 
 ## AngularJS Modules
-An AngularJS module is, by definition, a way to organize related components, directives, pipes, and services, allowing them to be combined with other modules to form applications.
+A way to organize related components, directives, pipes, and services, allowing them to be combined with other modules to form applications.
 
-For an easier understanding of AngularJS for beginners, an Angular application can be considered a puzzle where each piece (or each module) is needed to see the full picture.
 
 An AngularJS module can be created using the angular.module function. Once you have created an app you can add controllers, directives and pipelines to your application. For example, we can add a controller with the ng-controller directive:
 
@@ -139,11 +129,15 @@ ng-model="FirstName."
 
 More specifically, you can usually use the ng-bind directive, which will bind the innerHTML of the element to the specified model property:
 
-```jsx <p ng-bind="Firstname"></p> ```
+```jsx 
+<p ng-bind="Firstname"></p>
+```
 
 Like the previous example, you can also display the content from the model using double braces {{ }}:
 
- ```jsx <p>First name: {{Firstname}}</p> ```
+ ```jsx 
+ <p>First name: {{Firstname}}</p>
+```
 
 ##  Directives
 
@@ -166,12 +160,10 @@ AngularJS has many built-in directives which offer different functionalities and
 ## AngularJS Filter
 
 AngularJS filters allow users to format data in the user interface without altering the original format. 
-AngularJS provides a plethora of filters to transform data:
+
 
  - currency: Used to format a number to a currency format
  - date: Used to format a date to some format
- - filter: Select a subset from a set of items
- - json: Used to format an object to a JSON string
  - limitTo: Used to limit an array/string, into a specific number of elements/characters
  - lowercase: Used to format a string to lower case
  - number: Can format a numerical value to a string
@@ -346,17 +338,11 @@ An Events in AngularJS can be used to perform particular tasks, based on the act
 - ng-mousedown: Movement of the mouse downwards leads to the execution of the event.
 - ng-mouseenter: Click of the mouse button leads to the execution of the event.
 - ng-mouseover: Hovering the mouse leads to the execution of the event.
-- ng-cut: Cut operation leads to the execution of the event.
-- ng-copy: Copy operation leads to the execution of the event.
 - ng-keypress: Press of key leads to the execution of the event.
 - ng-keyup: Press of upward arrow key leads to the execution of the event.
 - ng-keydown: Press of downward arrow key leads to the execution of the event.
 - ng-click: Single click leads to the execution of the event.
 - ng-dblclick: Double click leads to the execution of the event.
-- ng-blur: Fired when an HTML element loses its focus.
-- ng-change: It is used whenever the value of an input element changes.
-- ng-focus: It is used to apply custom behavior when an element is focused.
-- ng-paste: It is used to specify custom behavior functions when the text in input fields is pasted into an HTML element.
 - ng-mouseleave: It is used to apply custom behavior when a mouse-leave event occurs on a specific HTML element.
 
 Example:
