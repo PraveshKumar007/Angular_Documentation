@@ -213,23 +213,52 @@ AngularJS filters allow users to format data in the user interface without alter
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
 </head>
-<body>
+<body ng-app="exampleApp" ng-controller="exampleController">
 
-<div ng-app="exampleApp" ng-controller="exampleController">
-  <p>The name is {{ lastName | uppercase }}</p>
-</div>
+  <!-- Currency Filter -->
+  <h2>Currency Filter</h2>
+  <p>Amount: {{ amount | currency }}</p>
 
-<script>
-var app = angular.module("exampleApp", []);
-app.controller("exampleController", function($scope) {
-  $scope.lastName = "Doe";
-});
-</script>
+  <!-- Date Filter -->
+  <h2>Date Filter</h2>
+  <p>Today's Date: {{ today | date:'fullDate' }}</p>
+
+  <!-- LimitTo Filter -->
+  <h2>LimitTo Filter</h2>
+  <p>Limited Names: {{ names | limitTo:2 }}</p>
+
+  <!-- Lowercase Filter -->
+  <h2>Lowercase Filter</h2>
+  <p>Lowercase Name: {{ name | lowercase }}</p>
+
+  <!-- Number Filter -->
+  <h2>Number Filter</h2>
+  <p>Formatted Number: {{ number | number}}</p>
+
+  <!-- OrderBy Filter -->
+  <h2>OrderBy Filter</h2>
+  <p>Sorted Names: <span ng-repeat="name in names | orderBy">{{ name }} </span></p>
+
+  <!-- Uppercase Filter -->
+  <h2>Uppercase Filter</h2>
+  <p>Uppercase Name: {{ name | uppercase }}</p>
+
+  <script>
+    var app = angular.module("exampleApp", []);
+    app.controller("exampleController", function($scope) {
+      $scope.amount = 1234.56; // Example amount
+      $scope.today = new Date(); // Current date
+      $scope.names = ["John", "Jane", "Doe"]; // List of names
+      $scope.name = "AngularJS"; // Example name
+      $scope.number = 1234567.89; // Example number
+    });
+  </script>
 
 </body>
 </html>
+
 
 ```
 
