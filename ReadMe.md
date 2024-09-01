@@ -105,38 +105,61 @@ A way to organize related components, directives, pipes, and services, allowing 
 An AngularJS module can be created using the angular.module function. Once you have created an app you can add controllers, directives and pipelines to your application. For example, we can add a controller with the ng-controller directive:
 
 ```jsx
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
 <div ng-app="exampleApp" ng-controller="myCtrl">
-{{ FirstName + " " + FastName }}
+  {{ firstName + " " + lastName }}
 </div>
+
 <script>
 var app = angular.module("exampleApp", []);
 app.controller("myCtrl", function($scope) {
   $scope.firstName = "John";
   $scope.lastName = "Doe";
 });
-</script> 
+</script>
+
+</body>
+</html>
+
 ```
 
 ## Data Binding
 
 In AngularJS, data binding refers to the synchronization of the model and the View. Applications using AngularJS typically have a data model. The data model is a set of information that the application can use. Data binding binds AngularJS expressions with AngularJS data.
 
-We have already seen Data Binding in action. In the previous example, the {{ FirstName }} expression is an AngularJS data binding expression as it is bound with:
 
 ```jsx
-ng-model="FirstName."
-```
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
 
-More specifically, you can usually use the ng-bind directive, which will bind the innerHTML of the element to the specified model property:
+<div ng-app="exampleApp" ng-controller="myCtrl">
+  <h2>Simple Data Binding Example</h2>
+  <p>Enter your name:</p>
+  
+  <input type="text" ng-model="name">
+  <p>Hello, {{ name }}!</p>
+</div>
 
-```jsx 
-<p ng-bind="Firstname"></p>
-```
+<script>
+var app = angular.module("exampleApp", []);
+app.controller("myCtrl", function($scope) {
+  $scope.name = "John";
+});
+</script>
 
-Like the previous example, you can also display the content from the model using double braces {{ }}:
+</body>
+</html>
 
- ```jsx 
- <p>First name: {{Firstname}}</p>
 ```
 
 ##  Directives
@@ -151,10 +174,21 @@ AngularJS has many built-in directives which offer different functionalities and
    
  Let us see these directives in action:
 ```jsx
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
 <div ng-app="" ng-init="firstName='John'">
-<p>Name: <input type="text" ng-model="firstName"></p>
-<p>You wrote: {{ firstName }}</p>
+  <p>Name: <input type="text" ng-model="firstName"></p>
+  <p>You wrote: {{ firstName }}</p>
 </div>
+
+</body>
+</html>
+
 ```
 
 ## AngularJS Filter
@@ -176,9 +210,27 @@ AngularJS filters allow users to format data in the user interface without alter
  Let's look at an example:
  
 ```jsx
-div ng-app="exampleApp" ng-controller="exampleController">
-<p>The name is {{ LastName | uppercase }}</p>
-</div> 
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="exampleApp" ng-controller="exampleController">
+  <p>The name is {{ lastName | uppercase }}</p>
+</div>
+
+<script>
+var app = angular.module("exampleApp", []);
+app.controller("exampleController", function($scope) {
+  $scope.lastName = "Doe";
+});
+</script>
+
+</body>
+</html>
+
 ```
 
 ## AngularJS - Tables
@@ -187,145 +239,74 @@ Table data is generally repeatable. The ng-repeat directive can be used to draw 
 The following example shows the use of ng-repeat directive to draw a table −
 
 ```jsx
-<table>
-   <tr>
-      <th>Name</th>
-      <th>Marks</th>
-   </tr>
-   
-   <tr ng-repeat = "subject in student.subjects">
-      <td>{{ subject.name }}</td>
-      <td>{{ subject.marks }}</td>
-   </tr>
-</table>
-```
-Table can be styled using CSS Styling.
-
-```jsx
-<style>
-   table, th , td {
-      border: 1px solid grey;
-      border-collapse: collapse;
-      padding: 5px;
-   }
-   table tr:nth-child(odd) {
-      background-color: #f2f2f2;
-   }
-   table tr:nth-child(even) {
-      background-color: #ffffff;
-   }
-</style>
-```
-
-
-The following example shows the use of all the above-mentioned directives.
-```jsx
-testAngularJS.htm
-Live Demo
+<!DOCTYPE html>
 <html>
-   <head>
-      <title>Angular JS Table</title>
-      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-      
-      <style>
-         table, th , td {
-            border: 1px solid grey;
-            border-collapse: collapse;
-            padding: 5px;
-         }
-         table tr:nth-child(odd) {
-            background-color: #f2f2f2;
-         }
-         table tr:nth-child(even) {
-            background-color: #ffffff;
-         }
-      </style>
-   </head>
-   
-   <body>
-      <h2>AngularJS Sample Application</h2>
-      <div ng-app = "mainApp" ng-controller = "studentController">
-         
-         <table border = "0">
-            <tr>
-               <td>Enter first name:</td>
-               <td><input type = "text" ng-model = "student.firstName"></td>
-            </tr>
-            <tr>
-               <td>Enter last name: </td>
-               <td>
-                  <input type = "text" ng-model = "student.lastName">
-               </td>
-            </tr>
-            <tr>
-               <td>Name: </td>
-               <td>{{student.fullName()}}</td>
-            </tr>
-            <tr>
-               <td>Subject:</td>
-               
-               <td>
-                  <table>
-                     <tr>
-                        <th>Name</th>.
-                        <th>Marks</th>
-                     </tr>
-                     <tr ng-repeat = "subject in student.subjects">
-                        <td>{{ subject.name }}</td>
-                        <td>{{ subject.marks }}</td>
-                     </tr>
-                  </table>
-               </td>
-            </tr>
-         </table>
-      </div>
-      
-      <script>
-         var mainApp = angular.module("mainApp", []);
-         
-         mainApp.controller('studentController', function($scope) {
-            $scope.student = {
-               firstName: "Mahesh",
-               lastName: "Parashar",
-               fees:500,
-               
-               subjects:[
-                  {name:'Physics',marks:70},
-                  {name:'Chemistry',marks:80},
-                  {name:'Math',marks:65},
-                  {name:'English',marks:75},
-                  {name:'Hindi',marks:67}
-               ],
-               fullName: function() {
-                  var studentObject;
-                  studentObject = $scope.student;
-                  return studentObject.firstName + " " + studentObject.lastName;
-               }
-            };
-         });
-      </script>
-      
-   </body>
-</html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
 
+<div ng-app="exampleApp" ng-controller="exampleController">
+  <table border="1">
+     <tr>
+        <th>Name</th>
+        <th>Marks</th>
+     </tr>
+     
+     <tr ng-repeat="subject in student.subjects">
+        <td>{{ subject.name }}</td>
+        <td>{{ subject.marks }}</td>
+     </tr>
+  </table>
+</div>
+
+<script>
+var app = angular.module("exampleApp", []);
+app.controller("exampleController", function($scope) {
+  $scope.student = {
+    subjects: [
+      { name: "Mathematics", marks: 90 },
+      { name: "Physics", marks: 85 },
+      { name: "Chemistry", marks: 78 },
+      { name: "Biology", marks: 88 }
+    ]
+  };
+});
+</script>
+
+</body>
+</html>
 ```
+
 ## Pipes
 
 Pipes transform data in the template. Angular provides built-in pipes for common data transformations like date formatting, currency conversion, and more.
 
-**Using Built-in Pipes**
+**Example**
 
 ```jsx
-<p>{{ birthday | date }}</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
 
-```
-- **birthday** is a Date object in the component.
-- **date** pipe formats the date.
+<div ng-app="exampleApp" ng-controller="exampleController">
+  <h2>Uppercase Filter Example</h2>
+  <p>Original Text: {{ message }}</p>
+  <p>Uppercase Text: {{ message | uppercase }}</p>
+</div>
 
-**Output**
+<script>
+var app = angular.module("exampleApp", []);
+app.controller("exampleController", function($scope) {
+  $scope.message = "Hello, AngularJS!";
+});
+</script>
 
-```jsx
-Displays the formatted date of 'birthday'.
+</body>
+</html>
 
 ```
 
