@@ -40,16 +40,12 @@ Angular is a framework for building websites and web apps, especially single-pag
 
 **Installing AngularJS**
 
-AngularJS can be installed via a CDN or npm.
+AngularJS can be installed via a CDN.
+
 CDN Installation: Include AngularJS directly in your HTML.
+
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
 
-**npm Installation**: Install AngularJS as a dependency.
-
-**bash**
-  ```jsx
-    npm install angular@1.8.0
-  ```
 
 **Your First AngularJS Application**
 
@@ -74,6 +70,10 @@ Create a basic "Hello World" AngularJS app.
       </script>
     </body>
     </html>
+```
+**Output**
+```jsx
+Hello, AngularJS!
 ```
 
 ## AngularJS Expressions
@@ -126,6 +126,10 @@ app.controller("myCtrl", function($scope) {
 </html>
 
 ```
+**Output**
+```jsx
+John Doe
+```
 
 ## Data Binding
 
@@ -158,6 +162,17 @@ app.controller("myCtrl", function($scope) {
 </body>
 </html>
 
+```
+
+**Output**
+```jsx
+Simple Data Binding Example
+Enter your name:
+
+```jsx
+pravesh
+```
+Hello, pravesh!
 ```
 
 ##  Directives
