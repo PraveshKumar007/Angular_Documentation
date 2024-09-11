@@ -7,7 +7,6 @@
 - Getting Started
 - AngularJS Expressions
 - AngularJS Modules
-- Data Binding
 - Directives in AngularJS
 - AngularJS Filter
 - AngularJS - Tables
@@ -116,49 +115,6 @@ app.controller("myCtrl", function($scope) {
 John Doe
 ```
 
-## Data Binding
-
-Data binding in AngularJS is like a link between your app's data and the webpage. When the data changes, the webpage updates automatically. If you change something on the webpage, the data in the app also changes. This happens by itself, so you don’t have to write extra code.
-
-
-```jsx
-<!DOCTYPE html>
-<html>
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-</head>
-<body>
-
-<div ng-app="exampleApp" ng-controller="myCtrl">
-  <h2>Simple Data Binding Example</h2>
-  <p>Enter your name:</p>
-  
-  <input type="text" ng-model="name">
-  <p>Hello, {{ name }}!</p>
-</div>
-
-<script>
-var app = angular.module("exampleApp", []);
-app.controller("myCtrl", function($scope) {
-  $scope.name = "John";
-});
-</script>
-
-</body>
-</html>
-
-```
-
-**Output**
-```jsx
-Simple Data Binding Example
-Enter your name:
-
-
-pravesh
-
-Hello, pravesh!
-```
 
 ##  Directives
 
