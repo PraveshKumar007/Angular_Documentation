@@ -23,21 +23,6 @@
 Angular is a framework for building websites and web apps, especially single-page apps, using HTML and TypeScript. It's developed by Google and helps developers create dynamic, interactive, and fast web applications easily. With Angular, you can manage how a webpage updates without needing to reload the whole page, making user experiences smoother.
 
 
-### Version History
-**AngularJS (1.x):** This version was the first release of Angular, starting in 2010.
-
-**Angular (2+):** Starting from Angular 2 in 2016. 
-
-**Key Differences:**
-
-- **AngularJS:** Older, with a focus on controllers and bidirectional data binding.
- 
-- **Angular:** Newer, with components, TypeScript support, and a unidirectional data flow.
-
-
-
-## Getting Started
-
 **Installing AngularJS**
 
 AngularJS can be installed via a CDN.
