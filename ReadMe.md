@@ -169,9 +169,9 @@ app.controller("myCtrl", function($scope) {
 Simple Data Binding Example
 Enter your name:
 
-```jsx
+
 pravesh
-```
+
 Hello, pravesh!
 ```
 
@@ -203,6 +203,12 @@ You can use directives inside HTML tags or attributes, and AngularJS comes with 
 </body>
 </html>
 
+```
+**Output**
+```jsx
+Name: John
+
+You wrote: John
 ```
 
 ## AngularJS Filter
@@ -276,6 +282,29 @@ AngularJS filters allow users to format data in the user interface without alter
 
 ```
 
+**Output**
+```jsx
+Currency Filter
+Amount: $1,234.56
+
+Date Filter
+Today's Date: Wednesday, September 11, 2024
+
+LimitTo Filter
+Limited Names: ["John","Jane"]
+
+Lowercase Filter
+Lowercase Name: angularjs
+
+Number Filter
+Formatted Number: 1,234,567.89
+
+OrderBy Filter
+Sorted Names: Doe Jane John
+Uppercase Filter
+Uppercase Name: ANGULARJS
+```
+
 ## AngularJS - Tables
 
 Table data is generally repeatable. The ng-repeat directive can be used to draw table easily. 
@@ -320,6 +349,14 @@ app.controller("exampleController", function($scope) {
 </body>
 </html>
 ```
+**Output**
+```jsx
+Name	        Marks
+Mathematics	  90
+Physics	      85
+Chemistry	    78
+Biology	      88
+```
 
 ## Pipes
 
@@ -351,6 +388,13 @@ app.controller("exampleController", function($scope) {
 </body>
 </html>
 
+```
+**Output**
+```jsx
+Uppercase Filter Example
+Original Text: Hello, AngularJS!
+
+Uppercase Text: HELLO, ANGULARJS!
 ```
 
 ## AngularJS Events
@@ -399,7 +443,15 @@ Example:
 </body> 
 </html>
 ```
+**Output**
+```jsx
+Click on button to increase the Total Count.
 
+button
+
+Total Count:
+3
+```
 ## References
 
 https://www.w3schools.com/angular/
