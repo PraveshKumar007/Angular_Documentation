@@ -1,5 +1,5 @@
 # **ANGULAR**
-<img src="Why-AngularJS-A1.jpg" alt="" style="width:100%;"/>
+<img src="the-seo-guide-to-angular.png" alt="" style="width:100%;"/>
 
 
 ## Table of Content
